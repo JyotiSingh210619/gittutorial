@@ -1,0 +1,152 @@
+Exercise 1: Load and Inspect the Data
+
+
+1.     
+Load the Iris dataset from a CSV file.
+iris=pd.read_csv("iris.csv")
+print(iris)
+
+2.     
+Display the first 10 rows of the dataset.
+print("first five rows :" ,df.head(10))
+
+
+3.     
+Display the data types of each column. 
+
+inc_dc=df.columns
+print(inc_dc)
+
+
+Exercise 2: Summary Statistics
+
+
+1.     
+Calculate summary statistics for each feature.
+print(df.groupby("Index")["Year2002","Year2003"].agg(["min","max","mean"]))
+
+ 
+
+2.     
+Calculate the mean sepal length for each
+species.
+
+#print(df.groupby(["Index","State"]).agg({"Year2002":[min,max],"Year2003": "mean"}))
+
+ 
+
+Exercise 3: Data Cleaning
+
+
+Check
+for missing values.
+Replace
+any missing values with the mean of the respective column (if any).
+
+ 
+
+Exercise 4: Data Filtering
+
+
+Filter
+the dataset to include only rows where the sepal length is greater than
+5.0.
+Filter
+the dataset to include only rows of the species 'Setosa'.
+
+print(df.loc[(df.SepalLength > 5.0) & (df.Species=="setosa")])
+
+ 
+
+#print(df.loc[(df.Index=="A") & (df.Year2002 > 1500000),:])
+
+ 
+
+
+
+Exercise 5: Data Aggregation
+
+
+Calculate
+the mean, median, and standard deviation of petal length for each species.
+
+print(df.groupby("Index")["Year2002","Year2003"].agg(["min","max","mean"]))
+
+
+Count
+the number of occurrences of each species.
+print("frequency  :",df.number.value_counts(ascending=True))
+
+
+
+3.      Calculate the minimum and maximum petal width for
+each species.
+
+
+4.      Find the species with the highest average sepal
+width.
+
+
+Exercise 6: Data Transformation
+
+
+Normalize
+the numerical features (sepal length, sepal width, petal length, petal
+width) to a range of 0 to 1.
+Create
+a new column that is the ratio of petal length to petal width.
+
+df['rank']=df['score'].rank()
+
+Exercise 7: Advanced Data Aggregation
+
+
+Calculate
+the 25th, 50th, and 75th percentiles of sepal length for each species.
+Determine
+the range (max - min) of petal length for each species.
+
+
+
+Exercise 8: Merging and Joining
+
+
+Create
+a new DataFrame with additional information about each species (e.g.,
+typical habitat).
+Merge
+this new DataFrame with the original Iris DataFrame.
+
+
+
+Exercise 9: Applying Custom Functions
+
+
+Create
+a custom function that categorizes flowers as 'small', 'medium', or
+'large' based on petal length.
+Apply
+this function to create a new column in the dataset.
+git status - it lists all the modified files which are ready to be added to the local repository
+
+git config --global user.email ilearniexcel@gmail.com
+
+git config --global user.name "coderepositor"
+
+git config --list - It will show the entire configruation parameter set for the local repository
+
+git add <filename> : It will add the file into the staging area
+
+git add * : It will move all the files from working directory to staging area
+
+git add -A: It will move all the untracked files
+
+git rm --cached <filename> : It will unstage the file from staging area
+
+git rm --cached <filename> -r : Recursively removes the file from cached folder to working directory
+
+git rm --cached * : It will unstage all the files from staging area to working directory
+
+git rm --cached <filename> -f : It will unstage all the files from staging area to working directory forcefully
+
+git restore <filename> - It updates the working directory file with staging area file and it is not unstaged

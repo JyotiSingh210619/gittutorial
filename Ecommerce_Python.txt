@@ -1,0 +1,29 @@
+import pandas as pd
+
+df=pd.read_excel('sample_ecommerce_data.xlsx')
+print(df)
+#Clean the data by handling missing values 
+print('*'*60)
+has_missing_values = df.isna().any().any()
+print(has_missing_values)
+print('*'*60)
+#missing_values = df.isnull().sum()
+#print(missing_values)
+missing_values_summary = df.isna().sum()
+print(missing_values_summary)
+print('*'*60)
+#correcting data types.
+print(df.info())
+print('-'*60)
+newdt=df['Product Price']=df['Product Price'].astype(float)
+print(newdt)
+print('-'*60)
+#Normalize the product categories and subcategories.
+df['Product Subcategory']=df['Product Subcategory'].str.strip().str.lower()
+df['Product Category']=df['Product Category'].str.strip().str.lower()
+#Total Sales and Transaction Month
+df['Total Sales']=df['Product Price']* df['Quantity Sold']
+df['Transaction Month']=df['Transaction Date'].dt.month
+
+print(df)
+

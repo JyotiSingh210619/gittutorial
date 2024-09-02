@@ -1,0 +1,332 @@
+db.persons.insertMany(
+[{
+firstName: "Vinay",
+lastName: "Rao",
+email: vr@hotmail.com,
+salary: 56000,
+dob: new Date('Mar 2,1999'),
+skills: ["Java","React","Mysql"],
+address: {
+street: "Kumar Sublime",
+house: "A304",
+city : "Pune",
+state : "MH",
+country : "India",
+pincode: 411048
+}
+},
+
+{
+firstName: "Keshav",
+lastName: "Ingle",
+email: ik@gmail.com,
+salary: 100000,
+dob: new Date('Oct 14,1995'),
+skills: ["Angular","React","Mysql"],
+address: {
+street: "Five Gardens Society",
+house: "A456",
+city : "Mumbai",
+state : "MH",
+country : "India",
+pincode: 400001
+
+}
+
+},
+
+{
+firstName: "Kirti",
+lastName: "Moghe",
+email: kirti@yahoo.com,
+salary: 50000,
+dob: new Date('Apr 15,1996'),
+skills: ["Oracle","React",".Net"],
+address: {
+street: "Seashore Villas",
+city : "Goa",
+state : "Goa",
+country : "India",
+pincode: 600001
+
+}
+
+}
+
+])
++++++++++++++++++++++++++++++++++++++++++++++++
+db.inventory.insertMany([
+
+{ item: "journal", qty: 25, tags: ["blank", "red"], dim_cm: [ 14, 21 ] },
+
+{ item: "notebook", qty: 50, tags: ["red", "blank"], dim_cm: [ 14, 21 ] },
+
+{ item: "paper", qty: 100, tags: ["red", "blank", "plain"], dim_cm: [ 14, 21 ] },
+
+{ item: "planner", qty: 75, tags: ["blank", "red"], dim_cm: [ 22.85, 30 ] },
+
+{ item: "postcard", qty: 45, tags: ["blue"], dim_cm: [ 10, 15.25 ] }
+
+]);
+
+db.inventory.find({"tags" :{$size:2}})
+
+db.emp.find({$and:[{lastName:"Joshi",designation:"ST"}]})
+
+db.emp.find({$or:[{age:32},{designation:"HR"}]})
+
+- Find all the documents which has qty >= 50
+db.inventory.find({qty :{$gte:50}})
+
+- Find all the documents whose qty is either 100 or item is notebook
+db.inventory.find({$or:[{qty:100},{item:"notebook"}]})
+
+- Find first document whose tags contains "red" and "blank"
+db.inventory.find({tags:{$in:["red","blank"]}})
+########################################################################
+db.emp.insertOne(
+{
+F_name:'Geeta',
+L_name:'Sharma',
+Age :'20'
+}
+);
+
+db.emp.find() -> It will show all the documents for the collection emp
+
+db.emp.find().pretty() - It will show all the documents for the collection emp in formatted way
+
+db.emp.findOne() - first document of the emp collection
+
+`
+
+db.emp.find({firstName:"Manas"})
+
+db.emp.find({lastName:"Joshi"}).pretty()
+
+db.emp.findOne({lastName:"Joshi"})
+
+ 
+
+db.emp.find({age:{$gt:20}})
+
+$gt, $lt, $gte, $lte, $ne
+
+$gt, $lt, $gte, $lte, $ne
+
+ 
+
+ 
+
+use ustdb
+
+db.createCollection(<collectionname>)
+
+db.createCollection("Employee")
+
+db.dropDatabase()
+
+show collections()
+
+db.<collectionname>.drop()
+
+db.Employee.drop()
+
+db.emp.insertOne(
+
+{
+
+firstName : "Parag",
+
+lastName : "Joshi",
+
+age: 40,
+
+married : true
+
+}
+
+)
+
+db.emp.insertMany([
+
+{
+
+_id:1,
+
+firstName : "Prachi",
+
+lastName : "Joshi",
+
+age: 40,
+
+designation: "ID",
+
+married : true
+
+},
+
+{
+
+_id:2,
+
+firstName : "Manas",
+
+lastName : "Joshi",
+
+age: 20,
+
+designation: "ST",
+
+married : false
+
+}
+
+])
+
+
+db.emp.find(
+
+{age:{$ne:20}},
+
+{_id:0,firstName:1,lastName:1}
+
+)
+
+db.emp.find(
+
+{age:{$ne:20}},
+
+{_id:0,married:0}
+
+)
+
+db.emp.find(
+
+{},{_id:0,firstName:1,lastName:1}).sort({firstName:1})
+
+db.emp.find(
+
+{},{_id:0,firstName:1,lastName:1}).sort({firstName:-1})
+
+db.emp.find(
+
+{},{_id:0,firstName:1,lastName:1}).sort({lastName:-1, firstName:1})
+
+db.emp.find(
+
+{},{_id:0,firstName:1,lastName:1,age:1}).sort({lastName:1, firstName:-1})
+
+db.emp.find(
+
+{},{firstName:1,lastName:1,age:1}).sort({age:1, firstName:-1})
+
+db.emp.find(
+
+{age:{$gt:25,$lt:45}},
+
+{_id:0, firstName:1,age:1}
+
+)
+
+db.emp.find({designation:{$in:["ID","GD"]}})
+
+ 
+
+ 
+
+ 
+
+db.emp.find() -> It will show all the documents for the collection emp
+
+db.emp.find().pretty() - It will show all the documents for the collection emp in formatted way
+
+db.emp.findOne() - first document of the emp collection
+
+`
+
+db.emp.find({firstName:"Daesha"})
+
+db.emp.find({lastName:"Joshi"}).pretty()
+
+db.emp.findOne({lastName:"Joshi"})
+
+ 
+
+db.emp.find({age:{$gt:20}})
+
+$gt, $lt, $gte, $lte, $ne
+
+$gt, $lt, $gte, $lte, $ne
+
+ 
+
+ 
+
+use ustdb
+
+db.createCollection(<collectionname>)
+
+db.createCollection("Employee")
+
+db.dropDatabase()
+
+show collections()
+
+db.<collectionname>.drop()
+
+db.Employee.drop()
+
+db.emp.insertOne(
+
+{
+
+firstName : "Parag",
+
+lastName : "Joshi",
+
+age: 40,
+
+married : true
+
+}
+
+)
+
+db.emp.insertMany([
+
+{
+
+_id:1,
+
+firstName : "Prachi",
+
+lastName : "Joshi",
+
+age: 40,
+
+designation: "ID",
+
+married : true
+
+},
+
+{
+
+_id:2,
+
+firstName : "Manas",
+
+lastName : "Joshi",
+
+age: 20,
+
+designation: "ST",
+
+married : false
+
+}
+
+])
+
+ 
